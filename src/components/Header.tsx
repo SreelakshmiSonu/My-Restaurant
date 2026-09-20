@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "./Navbar";
 
 function Header() {
-  const [open, setOpen] = useState(false);
+ // const [open, setOpen] = useState(false);
 
   return (
     <header className="w-full bg-black/40 text-white shadow-md fixed top-8 left-0 z-40 backdrop-blur-sm">
