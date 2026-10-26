@@ -9,12 +9,12 @@ type NavItem = {
 const NavItems : NavItem[] = [
     {label : "HOME", href : "/"},
     { label : "ABOUT US", href : "/about"},
-    { label: "ORDER ONLINE", href: "/order" },
-    { label: "MENU", href: "/menu" },
-    { label: "RESERVATION", href: "/reservation" },
+    // { label: "ORDER ONLINE", href: "/order" },
+    // { label: "MENU", href: "/menu" },
+    // { label: "RESERVATION", href: "/reservation" },
     { label: "GALLERY", href: "/gallery" },
-    { label: "OUR NEWS", href: "/news" },
-    { label: "CONTACT US", href: "/contact" },
+    // { label: "OUR NEWS", href: "/news" },
+    // { label: "CONTACT US", href: "/contact" },
 ];
 
 function Navbar () {

@@ -22,7 +22,15 @@ export default function AboutUs() {
         <TopHeader />
         <Header />
 
-      <main className="mt-22 mx-auto max-w-5xl px-5 py-12 text-gray-800">
+        <div>
+            <img className="w-full h-[45vh] object-cover"
+                src="/images/platter.jpg"
+                alt="Platter"
+                
+            />
+        </div>
+
+      <main className="mx-auto max-w-5xl px-5 py-12 text-gray-800">
         <section className="mb-10 text-center">
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
             About Us
@@ -43,7 +51,7 @@ export default function AboutUs() {
           </p>
         </section>
   
-        <section
+        {/* <section
           aria-label="What we stand for"
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
@@ -56,7 +64,7 @@ export default function AboutUs() {
               <p className="text-gray-600">{text}</p>
             </article>
           ))}
-        </section>
+        </section> */}
       </main>
       </>
     );
