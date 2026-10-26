@@ -2,20 +2,7 @@ import Header from "./Header";
 import TopHeader from "./TopHeader";
 
 export default function AboutUs() {
-    const values = [
-      {
-        title: "Fresh Ingredients",
-        text: "Every dish is prepared fresh using quality ingredients.",
-      },
-      {
-        title: "Traditional Meets Modern",
-        text: "Classic flavours with a contemporary twist.",
-      },
-      {
-        title: "Exceptional Service",
-        text: "Warm, attentive service for every occasion.",
-      },
-    ];
+    
   
     return (
         <>
