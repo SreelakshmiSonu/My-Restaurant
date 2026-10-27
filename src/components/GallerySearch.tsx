@@ -4,8 +4,8 @@ export default function GallerySearch() {
   const [query, setQuery] = useState("");
 
   const searchWithAI = async () => {
-    const API_BASE_URL =
-      import.meta.env.VITE_API_BASE_URL ?? "http://localhost:3001";
+    // const API_BASE_URL =
+    //   import.meta.env.VITE_API_BASE_URL ?? "http://localhost:3001";
 
     // const response = await fetch(
     //   `${API_BASE_URL}/api/gallery-search`,
