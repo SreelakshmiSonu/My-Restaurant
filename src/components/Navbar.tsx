@@ -1,37 +1,77 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-
-type NavItem = {
-    label : string;
-    href : string;
-}
-
-const NavItems : NavItem[] = [
-    {label : "HOME", href : "/"},
-    { label : "ABOUT US", href : "/about"},
-    // { label: "ORDER ONLINE", href: "/order" },
-    // { label: "MENU", href: "/menu" },
-    // { label: "RESERVATION", href: "/reservation" },
-    { label: "GALLERY", href: "/gallery" },
-    // { label: "OUR NEWS", href: "/news" },
-    // { label: "CONTACT US", href: "/contact" },
+const navItems = [
+  { label: "HOME", href: "/" },
+  { label: "MENU", href: "/menu" },
+  { label: "ABOUT US", href: "/about" },
+  { label: "GALLERY", href: "/gallery" },
 ];
 
-function Navbar () {
-    return (
-        <nav className="hidden md:flex gap-8 font-body text-md tracking-wide">
-            {NavItems.map((item) => (
-                <Link
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  return (
+    <nav className="relative font-body tracking-wide" aria-label="Main navigation">
+      <div className="hidden items-center gap-8 text-md md:flex">
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.href;
+          return (
+            <Link
+              key={item.label}
+              to={item.href}
+              aria-current={isActive ? "page" : undefined}
+              className={`group relative transition-colors hover:text-yellow-300 ${
+                isActive ? "text-yellow-300" : ""
+              }`}
+            >
+              {item.label}
+              <span
+                className={`absolute bottom-0 left-0 h-[2px] bg-current transition-all ${
+                  isActive ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
+            </Link>
+          );
+        })}
+      </div>
+
+      <button
+        type="button"
+        className="rounded-lg border border-white/40 px-3 py-2 text-sm font-semibold md:hidden"
+        aria-expanded={menuOpen}
+        aria-controls="mobile-navigation"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        {menuOpen ? "Close" : "Menu"}
+      </button>
+
+      {menuOpen && (
+        <div
+          id="mobile-navigation"
+          className="absolute right-0 top-full z-50 mt-3 flex min-w-48 flex-col gap-1 rounded-xl border border-white/10 bg-[#1d2924] p-2 shadow-xl md:hidden"
+        >
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.href;
+            return (
+              <Link
                 key={item.label}
                 to={item.href}
-                className="hover:text-yellow-300 relative group transition-colors"
+                aria-current={isActive ? "page" : undefined}
+                onClick={() => setMenuOpen(false)}
+                className={`rounded-lg px-4 py-3 text-sm transition-colors hover:bg-white/10 hover:text-yellow-300 ${
+                  isActive ? "text-yellow-300" : "text-white"
+                }`}
               >
                 {item.label}
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white group-hover:w-full transition-all"></span>
               </Link>
-            ))}
-        </nav>
-    )
+            );
+          })}
+        </div>
+      )}
+    </nav>
+  );
 }
 
 export default Navbar;

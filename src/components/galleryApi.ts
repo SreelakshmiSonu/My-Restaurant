@@ -58,7 +58,7 @@ export async function searchGallery(
         tags,
       })),
     }),
-    signal: AbortSignal.timeout(60_000),
+    signal: AbortSignal.timeout(60000),
   });
 
   const result: unknown = await response.json().catch(() => null);

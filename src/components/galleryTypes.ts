@@ -1,4 +1,10 @@
-export type Category = "FOOD" | "DRINKS" | "INTERIOR" | "CHEF_SPECIALS";
+export type Category =
+  | "FOOD"
+  | "STARTERS"
+  | "DESSERTS"
+  | "DRINKS"
+  | "INTERIOR"
+  | "CHEF_SPECIALS";
 
 export type GalleryImage = {
   id: string;

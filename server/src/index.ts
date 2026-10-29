@@ -115,8 +115,9 @@ app.post("/api/gallery-search", async (req, res) => {
 
     const response = await retryOnTemporaryError(() =>
       ai.models.generateContent({
-        // Use the model ID recommended by your Gemini API error.
-        model: "gemini-3.8-flash",
+        // This is a lightweight metadata matching task, so use the low-latency
+        // Flash-Lite model instead of a model optimized for complex reasoning.
+        model: "gemini-3.5-flash-lite",
         contents: JSON.stringify({
           instruction:
             "Match the user's search query to the supplied gallery image metadata. " +
@@ -127,6 +128,16 @@ app.post("/api/gallery-search", async (req, res) => {
           images: galleryImages,
         }),
         config: {
+          // Gallery matching is a small classification task; low reasoning
+          // keeps search latency down while still using structured output.
+          thinkingConfig: {
+            thinkingLevel: "low",
+          },
+          abortSignal: AbortSignal.timeout(45000),
+          httpOptions: {
+            timeout: 45000,
+          },
+          maxOutputTokens: 256,
           responseMimeType: "application/json",
           responseSchema: {
             type: Type.OBJECT,

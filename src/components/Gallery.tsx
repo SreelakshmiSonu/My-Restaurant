@@ -75,7 +75,7 @@ export default function Gallery() {
       {/* Hero */}
       <section className="relative flex min-h-[320px] items-center justify-center overflow-hidden bg-[#1d2924] px-5 pb-12 pt-28 text-center text-white">
         <img
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=90"
+          src="https://assets.cntraveller.in/photos/64d1f51e7f4c9f4cc0cc84b3/master/w_1600%2Cc_limit/Sadhya.jpg"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
@@ -84,14 +84,14 @@ export default function Gallery() {
 
         <div className="relative z-[1] max-w-2xl">
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-[#e6bd61]">
-            A taste of Sree's Kitchen
+            A taste of Kerala at Sree's Kitchen
           </p>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">
             Our Gallery
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/85 sm:text-base">
-            Explore our delicious dishes, cozy ambiance, and unforgettable
-            moments.
+            Discover Kerala favourites, from coastal curries and soft appam to
+            festive sadya and homestyle sweets.
           </p>
         </div>
       </section>
@@ -111,7 +111,7 @@ export default function Gallery() {
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder='Ask AI to find something... e.g. "spicy dishes" or "cozy interior"'
+              placeholder='Ask AI to find something... e.g. "fish curry" or "vegetarian sadya"'
               className="w-full bg-transparent py-4 text-sm outline-none placeholder:text-gray-400"
             />
             {query && (
