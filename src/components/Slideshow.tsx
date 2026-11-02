@@ -1,33 +1,37 @@
 import { Link } from "react-router-dom";
 import { galleryImages } from "./galleryData";
 
-const getDishImage = (id: string) =>
+const getDishFallback = (id: string) =>
   galleryImages.find((image) => image.id === id)?.imageUrl ?? "";
 
 const slides = [
   {
     title: "Palada Payasam",
     subtitle: "A creamy Kerala classic, made for a sweet finish.",
-    image: getDishImage("7"),
+    image: "/images/menu/7.png",
+    fallbackImage: getDishFallback("7"),
     alt: "Traditional palada payasam garnished with cashews",
   },
   {
     title: "Appam & Fish Molly",
     subtitle: "Soft, lacy appam with mild fish stew in coconut milk.",
-    image:
+    image: "/images/menu/fish-molly.png",
+    fallbackImage:
       "https://i0.wp.com/www.pepperdelight.com/wp-content/uploads/2018/03/pepper-delight-fish-molly-3.jpg?resize=1899%2C2896",
     alt: "Kerala fish molly served with appam",
   },
   {
     title: "Karimeen Pollichathu",
     subtitle: "Pearl spot fish wrapped in banana leaf with Kerala spices.",
-    image: getDishImage("5"),
+    image: "/images/menu/5.png",
+    fallbackImage: getDishFallback("5"),
     alt: "Kerala pearl spot fish roasted in a banana leaf",
   },
   {
     title: "Unniyappam",
     subtitle: "Little rice and jaggery fritters with banana and cardamom.",
-    image: getDishImage("17"),
+    image: "/images/menu/17.png",
+    fallbackImage: getDishFallback("17"),
     alt: "Golden Kerala unniyappam fritters",
   },
 ];
@@ -45,7 +49,7 @@ function Slideshow() {
           aria-roledescription="slide"
           aria-label={`${index + 1} of ${slides.length}: ${slide.title}`}
           style={{
-            backgroundImage: `linear-gradient(90deg, rgb(13 21 18 / 78%), rgb(13 21 18 / 18%)), url("${slide.image}")`,
+            backgroundImage: `linear-gradient(90deg, rgb(13 21 18 / 78%), rgb(13 21 18 / 18%)), url("${slide.image}"), url("${slide.fallbackImage}")`,
             animationDuration: `${duration}s`,
             animationDelay: `${index * 5}s`,
           }}

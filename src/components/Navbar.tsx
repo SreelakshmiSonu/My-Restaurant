@@ -6,6 +6,7 @@ const navItems = [
   { label: "MENU", href: "/menu" },
   { label: "ABOUT US", href: "/about" },
   { label: "GALLERY", href: "/gallery" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
 function Navbar() {

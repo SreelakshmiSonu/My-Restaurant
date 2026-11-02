@@ -177,6 +177,11 @@ function Menu() {
                       src={item.image}
                       alt={item.imageAlt}
                       loading="lazy"
+                      onError={(event) => {
+                        if (event.currentTarget.src !== item.fallbackImage) {
+                          event.currentTarget.src = item.fallbackImage;
+                        }
+                      }}
                       className="h-full w-full object-cover"
                     />
                     <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-[#25312c]">

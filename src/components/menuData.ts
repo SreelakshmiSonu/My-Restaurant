@@ -9,6 +9,7 @@ export type MenuItem = {
   name: string;
   description: string;
   image: string;
+  fallbackImage: string;
   imageAlt: string;
   section: MenuSection;
   dietaryType: DietaryType;
@@ -133,7 +134,8 @@ function menuItem(
     id: galleryId,
     name: image.title,
     description: image.description,
-    image: image.imageUrl,
+    image: `/images/menu/${galleryId}.png`,
+    fallbackImage: image.imageUrl,
     imageAlt: image.alt,
     section,
     dietaryType,
